@@ -113,6 +113,28 @@ fn ui(frame: &mut Frame, app: &mut App) {
 
     let table = app.data_to_table().unwrap().to_string();
 
+    // let table = app.data_to_table().unwrap();
+    // let mut rows = vec![];
+    // let mut colcount = 0;
+    // table.row_iter().for_each(|row| {
+    //     let mut cells: Vec<String> = vec![];
+    //     row.cell_iter().for_each(|cell| {
+    //         cells.push(cell.content());
+    //     });
+
+    //     colcount = cells.len();
+    //     rows.push(Row::new(cells));
+    // });
+
+    // let widths: Vec<Constraint> = (0..colcount).map(|_| Constraint::Length(4)).collect();
+
+    // let table = Table::new(rows, widths)
+    //     .block(Block::default().title("Table"))
+    //     .highlight_style(Style::new().add_modifier(Modifier::REVERSED))
+    //     .highlight_symbol(">>");
+
+    // frame.render_widget(table, chart_area);
+
     app.vertical_scroll_state = app.vertical_scroll_state.content_length(table.len());
 
     let pretty_table = Paragraph::new(table)
